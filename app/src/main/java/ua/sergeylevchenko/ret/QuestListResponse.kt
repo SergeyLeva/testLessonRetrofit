@@ -7,22 +7,19 @@ data class QuestListResponse(val items: List<QuestListItem>)
 
 data class QuestListItem(
     @SerializedName("questId")
-    val  questId: String,
+    val questId: String,
 
     @SerializedName("questName")
     val name: String,
 
     @SerializedName("questSubtitle")
-    val subtitle : String,
+    val subtitle: String,
 
     @SerializedName("questImage")
-    val image : String,
+    val image: String,
 
     @SerializedName("questDescription")
-    val items : List<RemoteListItem>
+    val items: List<RemoteListItem>
 
 
-
-
-
-    )
+)

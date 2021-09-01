@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-class QuestApp: Application() {
+class QuestApp : Application() {
 
     lateinit var questApi: QuestApi
 
@@ -16,7 +16,8 @@ class QuestApp: Application() {
 
         configureRetrofit()
     }
-    private fun configureRetrofit(){
+
+    private fun configureRetrofit() {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 

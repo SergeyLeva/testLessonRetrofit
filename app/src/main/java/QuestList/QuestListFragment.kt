@@ -1,22 +1,23 @@
 package QuestList
 
+import android.content.ClipData
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-
-import ua.sergeylevchenko.ret.QuestApp
-import ua.sergeylevchenko.ret.R
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 
 
-class QuestListFragment: Fragment(R.layout.fragment_quest_list) {
+class QuestListFragment : Fragment() {
+
+    // Use the 'by activityViewModels()' Kotlin property delegate
+    // from the fragment-ktx artifact
+    private val model: QuestListViewModel by viewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val questListViewModel = ViewModelProvider.of().get(QuestListViewModel::class.java)
-        questListViewModel.fetchQuestList((activity?.application as? QuestApp)?.questApi)
+        model.selected.observe(viewLifecycleOwner, Observer<ClipData.Item> { item ->
+            // Update the UI
+        })
     }
-
 }
-
-
